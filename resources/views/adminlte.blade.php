@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
                 <wizard>
-                    <wizard-step title="Usuari" active="true">
+                    <wizard-step title="Usuari">
                         Usuari. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     </wizard-step>
                     <wizard-step title="Dades personals">
