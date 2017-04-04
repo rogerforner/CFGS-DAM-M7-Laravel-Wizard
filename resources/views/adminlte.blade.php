@@ -6,6 +6,11 @@
 
 
 @section('main-content')
+    <h4>Matrícula</h4>
+
+    <form-user>
+
+    </form-user>
 
     <div class="container-fluid spark-screen">
         <div class="row">

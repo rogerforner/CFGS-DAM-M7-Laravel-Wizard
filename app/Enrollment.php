@@ -55,6 +55,15 @@ class Enrollment extends Model implements Stateful
      * Interessant per fer comprovacions.
      */
     protected function validateStep1step2() {
-        return true;
+        if ($this->user_id != null) return true;
+        return false;
+    }
+
+    /**
+     * S'executarà quan es passi de l'step2 a l'step1.
+     * Interessant per fer comprovacions.
+     */
+    protected function validateStep2step1() {
+        return false;
     }
 }
