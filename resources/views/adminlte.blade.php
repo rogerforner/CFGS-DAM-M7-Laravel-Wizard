@@ -93,7 +93,9 @@
             </div>
             <!-- /.tab-pane -->
             <div class="tab-pane" id="tab_4">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consectetur dolores, eius ex id labore magnam necessitatibus nemo nihil quaerat, quas quia sapiente sed sint, sunt suscipit ullam voluptatem! Officiis!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consectetur dolores, eius ex id
+                labore magnam necessitatibus nemo nihil quaerat, quas quia sapiente sed sint, sunt suscipit
+                ullam voluptatem! Officiis!
             </div>
         </div>
         <!-- /.tab-content -->
