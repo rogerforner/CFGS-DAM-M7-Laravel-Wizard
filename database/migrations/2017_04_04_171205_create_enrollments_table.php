@@ -18,6 +18,7 @@ class CreateEnrollmentsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('person_id')->unsigned()->nullable();
             $table->timestamps();
+            $table->string('state'); //ho necessita l'stateful-eloquent
         });
     }
 
