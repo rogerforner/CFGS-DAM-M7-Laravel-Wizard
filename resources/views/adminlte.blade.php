@@ -11,7 +11,6 @@
 
     <div class="nav-tabs-custom">
 
-
         <div class="progress progress-sm active">
             <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
                  style="width: 75%">
@@ -19,8 +18,23 @@
             </div>
         </div>
 
-
-
+        <wizard>
+            <wizard-step title="Usuari" active="true">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </wizard-step>
+            <wizard-step title="Dades personals">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </wizard-step>
+            <wizard-step title="Estudi i curs">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </wizard-step>
+            <wizard-step title="Mòduls professionals">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </wizard-step>
+            <wizard-step title="Unitats formatives">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            </wizard-step>
+        </wizard>
 
 
         <ul class="nav nav-tabs nav-justified">
@@ -29,20 +43,18 @@
             <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
             <li><a href="#tab_4" data-toggle="tab">Tab 4</a></li>
 
-
-
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    Dropdown <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                </ul>
-            </li>
+            {{--<li class="dropdown">--}}
+                {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">--}}
+                    {{--Dropdown <span class="caret"></span>--}}
+                {{--</a>--}}
+                {{--<ul class="dropdown-menu">--}}
+                    {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>--}}
+                    {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>--}}
+                    {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>--}}
+                    {{--<li role="presentation" class="divider"></li>--}}
+                    {{--<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
             <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
         </ul>
         <div class="tab-content">
