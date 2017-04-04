@@ -188,6 +188,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * Step 2: Add the Service Provider
+         * Afegir \Providers\
+         * Desprès fer un <php artisan migrate>
+         */
+        Acacha\Stateful\Providers\StatefulServiceProvider::class,
     ],
 
     /*
