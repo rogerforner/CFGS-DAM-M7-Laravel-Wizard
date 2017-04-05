@@ -11275,9 +11275,18 @@ module.exports = function bind(fn, thisArg) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return store; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return state; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return store; });
+var state = {
+    currentStep: null
+};
+
 var store = {
-    currentStep: 'usuari'
+    state: state,
+
+    changeStep: function changeStep(step) {
+        state.currentStep = step;
+    }
 };
 
 /***/ }),
@@ -12707,32 +12716,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            form: new __WEBPACK_IMPORTED_MODULE_0_acacha_forms___default.a({ user: '' })
+            form: new __WEBPACK_IMPORTED_MODULE_0_acacha_forms___default.a({ user: '' }),
+            users: []
         };
     },
     mounted: function mounted() {
         console.log('Component mounted.');
         this.initialitzeSelect2();
+        this.fetchUsers();
     },
 
     methods: {
         submit: function submit() {
-            this.form.post('/enrollment/user').then(function (response) {}).catch(function (error) {});
+            this.form.post('/enrollment/user').then(function (response) {
+                console.log('TODO');
+            }).catch(function (error) {
+                console.log('ERROR');
+            });
         },
         initialitzeSelect2: function initialitzeSelect2() {
-            $(".select2").select2();
+            var component = this;
+            $(".select2").select2().on('TODO', function (event) {
+                component.form.set('user', userId);
+                component.form.error.clear();
+            });
+        },
+        fetchUsers: function fetchUsers() {
+            var _this = this;
+
+            axios.get('/users').then(function (response) {
+                _this.users = response.data;
+            });
+        }
+    },
+    watch: {
+        'form.user': function formUser(user) {
+            //TODO API SELECT2 PER seleccionar user la user.id
         }
     }
 });
@@ -12829,7 +12853,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             steps: [],
-            currentStep: __WEBPACK_IMPORTED_MODULE_0__Store__["a" /* store */].currentStep
+            state: __WEBPACK_IMPORTED_MODULE_0__Store__["a" /* state */]
         };
     },
     mounted: function mounted() {
@@ -12849,7 +12873,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         stepChanged: function stepChanged(step) {
             console.log(step);
-            __WEBPACK_IMPORTED_MODULE_0__Store__["a" /* store */].currentStep = step;
+            __WEBPACK_IMPORTED_MODULE_0__Store__["b" /* store */].currentStep = step;
         }
     }
 });
@@ -12875,7 +12899,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            currentStep: __WEBPACK_IMPORTED_MODULE_1__Store__["a" /* store */].currentStep
+            state: __WEBPACK_IMPORTED_MODULE_1__Store__["a" /* state */]
         };
     },
 
@@ -12921,7 +12945,6 @@ __webpack_require__(45);
 __webpack_require__(21);
 window.toastr = __webpack_require__(49);
 __webpack_require__(46);
-
 __webpack_require__(48);
 
 /**
@@ -43446,7 +43469,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.submit($event)
       },
       "keydown": function($event) {
-        _vm.form.errors.clear($event.target.name)
+        _vm.form.errors.clear($event.target.user)
       }
     }
   }, [_c('div', {
@@ -43458,32 +43481,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "for": "user"
     }
-  }, [_vm._v("User:")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.form.user),
-      expression: "form.user"
-    }],
-    staticClass: "form-control",
+  }, [_vm._v("User:")]), _vm._v(" "), _c('select', {
+    staticClass: "form-control select2",
+    staticStyle: {
+      "width": "100%"
+    },
     attrs: {
-      "type": "text",
-      "placeholder": "",
-      "name": "user",
-      "value": "",
-      "id": "user",
-      "autofocus": ""
-    },
-    domProps: {
-      "value": (_vm.form.user)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.form.user = $event.target.value
-      }
+      "id": "user"
     }
-  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('span', {
+  }, _vm._l((_vm.users), function(user) {
+    return _c('option', {
+      domProps: {
+        "value": user.id
+      }
+    }, [_vm._v(_vm._s(user.name))])
+  })), _vm._v(" "), _c('span', {
     staticClass: "glyphicon glyphicon-user form-control-feedback"
   }), _vm._v(" "), (_vm.form.errors.has('user')) ? _c('span', {
     staticClass: "help-block",
@@ -43499,18 +43511,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [(_vm.form.submitting) ? _c('i', {
     staticClass: "fa fa-refresh fa-spin"
   }) : _vm._e(), _vm._v("Next")])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('select', {
-    staticClass: "form-control select2",
-    staticStyle: {
-      "width": "100%"
-    }
-  }, [_c('option', {
-    attrs: {
-      "selected": "selected"
-    }
-  }, [_vm._v("Alabama")]), _vm._v(" "), _c('option', [_vm._v("Alaska")]), _vm._v(" "), _c('option', [_vm._v("California")]), _vm._v(" "), _c('option', [_vm._v("Delaware")]), _vm._v(" "), _c('option', [_vm._v("Tennessee")]), _vm._v(" "), _c('option', [_vm._v("Texas")]), _vm._v(" "), _c('option', [_vm._v("Washington")])])
-}]}
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

@@ -14,7 +14,6 @@ require('bootstrap-less');
 require('admin-lte');
 window.toastr = require('toastr');
 require('icheck');
-
 require('select2');
 
 /**
