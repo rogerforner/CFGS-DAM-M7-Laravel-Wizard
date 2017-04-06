@@ -32,7 +32,7 @@
             submit () {
                 this.form.post('/enrollment/user')
                     .then( response => {
-                        console.log('TODO')
+                        this.$emit('next')
                     })
                     .catch(error => {
                         console.log('ERROR')
@@ -53,7 +53,7 @@
         },
         watch: {
             'form.user': function(user){
-                //TODO API SELECT2 PER seleccionar user la user.id
+                //TODO API Select2 per a seleccionar user la user.id
             }
         }
     }

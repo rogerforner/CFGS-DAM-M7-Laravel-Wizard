@@ -11,7 +11,7 @@
     <div class="container-fluid spark-screen">
         <div class="row">
             <div class="col-md-12">
-                <wizard>
+                <wizard v-on:next="next">
                     <wizard-step title="Usuari">
                         <form-user></form-user>
                     </wizard-step>
