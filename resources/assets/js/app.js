@@ -15,9 +15,9 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 
-const store = {
-    'currentStep' : 'usuaris'
-}
+// const store = {
+//     'currentStep' : 'usuaris'
+// }
 
 Vue.component('wizard', require('./components/Wizard.vue'));
 Vue.component('wizard-step', require('./components/WizardStep.vue'));

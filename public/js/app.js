@@ -11311,9 +11311,9 @@ __webpack_require__(44);
 
 Vue.component('example', __webpack_require__(51));
 
-var store = {
-  'currentStep': 'usuaris'
-};
+// const store = {
+//     'currentStep' : 'usuaris'
+// }
 
 Vue.component('wizard', __webpack_require__(54));
 Vue.component('wizard-step', __webpack_require__(55));
